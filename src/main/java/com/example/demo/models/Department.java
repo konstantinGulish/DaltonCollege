@@ -13,7 +13,7 @@ public class Department {
     private String deptName;
 
     @OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
-    Set<Instructure> instructures;
+    Set<Instructor> instructures;
 
     @OneToMany(mappedBy="department", fetch = FetchType.EAGER)
     Set<Course> courses;
@@ -43,11 +43,11 @@ public class Department {
         this.deptName = deptName;
     }
 
-    public Set<Instructure> getInstructures() {
+    public Set<Instructor> getInstructures() {
         return instructures;
     }
 
-    public void setInstructures(Set<Instructure> instructures) {
+    public void setInstructures(Set<Instructor> instructures) {
         this.instructures = instructures;
     }
 

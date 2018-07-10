@@ -18,7 +18,7 @@ public class OurClass {
     Classroom classroom;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    Instructure instructure;
+    Instructor instructure;
 
     @ManyToMany(fetch =FetchType.EAGER)
     Set<Student> students;
@@ -67,11 +67,11 @@ public class OurClass {
         this.classroom = classroom;
     }
 
-    public Instructure getInstructure() {
+    public Instructor getInstructure() {
         return instructure;
     }
 
-    public void setInstructure(Instructure instructure) {
+    public void setInstructure(Instructor instructure) {
         this.instructure = instructure;
     }
 

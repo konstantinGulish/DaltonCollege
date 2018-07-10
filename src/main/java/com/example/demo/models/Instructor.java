@@ -6,7 +6,7 @@ import java.util.Set;
 
 
 @Entity
-public class Instructure {
+public class Instructor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -18,10 +18,10 @@ public class Instructure {
     @ManyToOne(fetch = FetchType.LAZY)
     Department department;
 
-    @OneToMany(mappedBy = "instructure", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER)
     Set<OurClass> classes;
 
-    public Instructure(){
+    public Instructor(){
         this.classes = new HashSet<>();
     }
 
