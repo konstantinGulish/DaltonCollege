@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +24,10 @@ public class OurClass {
     @ManyToMany(fetch =FetchType.EAGER)
     Set<Student> students;
 
+    private HashMap <Integer,String> grades;
+
     public OurClass(){
+        this.grades = new HashMap<>();
         this.students = new HashSet<>();
     }
 
@@ -81,5 +85,21 @@ public class OurClass {
 
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+
+    public void addStudent (Student student){
+        this.students.add (student);
+    }
+
+    public HashMap<Integer, String> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(HashMap<Integer, String> grades) {
+        this.grades = grades;
+    }
+
+    public void addGrade (Student student, String grade){
+        this.grades.put (student.getStudentNumber(), grade);
     }
 }

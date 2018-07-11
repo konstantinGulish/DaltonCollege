@@ -20,6 +20,9 @@ public class AppUser {
     @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     Set<AppRole> roles;
 
+    @OneToOne
+    Student student;
+
     public AppUser(){
         this.roles = new HashSet<>();
     }
@@ -74,6 +77,12 @@ public class AppUser {
         this.roles = roles;
     }
 
+    public Student getStudent() {
+        return student;
+    }
 
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }
 

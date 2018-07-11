@@ -60,4 +60,8 @@ public class Classroom {
     public void setClasses(Set<OurClass> classes) {
         this.classes = classes;
     }
+
+    public void addClass (OurClass c){
+        this.classes.add (c);
+    }
 }

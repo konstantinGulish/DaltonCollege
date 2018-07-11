@@ -16,10 +16,13 @@ public class Student {
     private String yearOfEntry;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    Major major;
+    private Major major;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    Set<OurClass> ourClass;
+    private Set<OurClass> ourClass;
+
+    @OneToOne(mappedBy = "student")
+    private AppUser user;
 
     public Student(){
         this.ourClass = new HashSet<>();
@@ -71,5 +74,16 @@ public class Student {
 
     public void setOurClass(Set<OurClass> ourClass) {
         this.ourClass = ourClass;
+    }
+
+    public AppUser getUser() {
+        return user;
+    }
+
+    public void setUser(AppUser user) {
+        this.user = user;
+    }
+    public void addOurClass (OurClass c){
+        this.ourClass.add(c);
     }
 }
