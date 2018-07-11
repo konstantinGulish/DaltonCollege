@@ -23,12 +23,13 @@
     <h1 class="text-black-50 text-center display-3">Current Semester Courses</h1>
 </div>
 <!--add th:object for the class-->
-<div>
+<div th:each="eachCourse:${courses}">
     <ul class="list-group">
         <li>Course</li>
         <li class="list-group-item">
             <!--add th: field for course number-->
-            <span> ENG 101 </span>
+            <span th:text="${eachCourse.subjectCode}"> ENG </span>
+            <span th:text="${eachCourse.courseNumber}"> 101 </span>
             <!--add th:field for the class name-->
             <span> Freshman Composition </span>
             <!--add th:field for the credits-->

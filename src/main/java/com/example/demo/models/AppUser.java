@@ -17,7 +17,7 @@ public class AppUser {
     private String userName;
     private String passWord;
 
-    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     Set<AppRole> roles;
 
     @OneToOne

@@ -59,7 +59,10 @@ public class MainController {
     }
 
     @RequestMapping("/currentsemester")
-    public String showCurrentCourses (){
+    public String showCurrentCourses (Model model){
+        model.addAttribute("courses", courses.findAll());
+        model.addAttribute("instructors", instructors.findAll());
+        model.addAttribute("classes", classes.findAll());
         return "currentsemester";
     }
 
