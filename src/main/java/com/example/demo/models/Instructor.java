@@ -13,7 +13,7 @@ public class Instructor {
 
     private int employeeNumber;
     private String employeeName;
-    private int officeNumber;
+    private String officeNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     Department department;
@@ -49,11 +49,11 @@ public class Instructor {
         this.employeeName = employeeName;
     }
 
-    public int getOfficeNumber() {
+    public String getOfficeNumber() {
         return officeNumber;
     }
 
-    public void setOfficeNumber(int officeNumber) {
+    public void setOfficeNumber(String officeNumber) {
         this.officeNumber = officeNumber;
     }
 

@@ -51,6 +51,9 @@ public class Department {
         this.instructures = instructures;
     }
 
+    public void addInstructor (Instructor instructor){
+        this.instructures.add (instructor);
+    }
     public Set<Course> getCourses() {
         return courses;
     }
@@ -59,11 +62,19 @@ public class Department {
         this.courses = courses;
     }
 
+    public void addCourse (Course course){
+        this.courses.add (course);
+    }
+
     public Set<Major> getMajors() {
         return majors;
     }
 
     public void setMajors(Set<Major> majors) {
         this.majors = majors;
+    }
+
+    public void addMajor (Major major){
+        this.majors.add (major);
     }
 }
