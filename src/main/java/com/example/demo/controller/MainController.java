@@ -25,6 +25,16 @@ public class MainController {
 
     @RequestMapping("/adduser")
     public String addUser (){
-        return "adduser";
+        return "register";
+    }
+
+    @RequestMapping("/allcourses")
+    public String showAllCourses (){
+        return "allcourses";
+    }
+
+    @RequestMapping("/currentsemester")
+    public String showCurrentCourses (){
+        return "currentsemester";
     }
 }
