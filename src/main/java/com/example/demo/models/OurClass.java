@@ -15,6 +15,9 @@ public class OurClass {
     private String courseNumber;
     private String subjectCode;
 
+    @ManyToOne
+    private Course course;
+
     @ManyToOne(fetch = FetchType.LAZY)
     Classroom classroom;
 
@@ -101,5 +104,13 @@ public class OurClass {
 
     public void addGrade (Student student, String grade){
         this.grades.put (student.getStudentNumber(), grade);
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

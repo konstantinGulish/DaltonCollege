@@ -38,41 +38,53 @@
 <!--add th:object for the class-->
 <div>
     <ul class="list-group">
+        <!--<li>Course</li>-->
+        <!--<li class="list-group-item">-->
+            <!--&lt;!&ndash;add th: field for course number&ndash;&gt;-->
+            <!--<span> ENG </span>-->
+            <!--<span> 101 </span>-->
+            <!--&lt;!&ndash;need a query to lookup course name&ndash;&gt;-->
+            <!--<span th:text> Freshman Composition </span>-->
+            <!--&lt;!&ndash;need a query to lookup course name&ndash;&gt;-->
+            <!--<span> 3 </span>-->
+            <!--&lt;!&ndash;add th:field for the department&ndash;&gt;-->
+            <!--<span> English Department </span>-->
+        <!--</li>-->
         <li>Course</li>
-        <li class="list-group-item">
-            <!--add th: field for course number-->
-            <span> ENG 101 </span>
-            <!--add th:field for the class name-->
-            <span> Freshman Composition </span>
-            <!--add th:field for the credits-->
-            <span> 3 </span>
-            <!--add th:field for the department-->
-            <span> English Department </span>
-        </li>
+        <!--add th: object for class-->
+        <li class="list-group-item" th:each="eachClass:${classes}">
+            <!--add th: field for crn-->
+            <span th:text="${eachClass.course.subjectCode}"></span>
+            <span th:text="${eachClass.course.courseNumber}"></span>
+            <span th:text="${eachClass.course.courseName}"></span>
+            <span th:text="${eachClass.course.numberOfCredits}"></span>
+            <span th:text="${eachClass.course.department.deptName}"></span>
         <li>Class</li>
         <!--add th: object for class-->
-        <li class="list-group-item">
-            <!--add th: field for crn-->
-            <span> 78567 </span>
+            <li class="list-group-item" th:each="eachClass:${classes}">
+            <span th:text="${eachClass.crn}"></span>
             <!--add th:field for the class time-->
+            <span th:text="${eachClass.subjectCode}"></span>
+
             <span> MWF 8am </span>
             <!--add th:field for the instructor-->
-            <span> Dave Wolf </span>
+            <span th:text="${eachClass.instructor.employeeName}"></span>
             <!--add th:field for the classroom-->
-            <span> Humanities Bldg Rm 321 </span>
+            <span th:text="${eachClass.classroom.buildingName}"></span>
+            <span th:text="${eachClass.classroom.roomNumber}"></span>
         </li>
-        <li>Instructor</li>
-        <!--add th: object for instructor-->
-        <li class="list-group-item">
-            <!--add th: field for instructor id-->
-            <span> 8675309 </span>
-            <!--add th:field for the instructor name-->
-            <span> Dave Wolf</span>
-            <!--add th:field for the department-->
-            <span> English Department </span>
-            <!--add th:field for the office-->
-            <span> Office HU322 </span>
-        </li>
+        <!--<li>Instructor</li>-->
+        <!--&lt;!&ndash;add th: object for instructor&ndash;&gt;-->
+        <!--<li class="list-group-item">-->
+            <!--&lt;!&ndash;add th: field for instructor id&ndash;&gt;-->
+            <!--<span> 8675309 </span>-->
+            <!--&lt;!&ndash;add th:field for the instructor name&ndash;&gt;-->
+            <!--<span> Dave Wolf</span>-->
+            <!--&lt;!&ndash;add th:field for the department&ndash;&gt;-->
+            <!--<span> English Department </span>-->
+            <!--&lt;!&ndash;add th:field for the office&ndash;&gt;-->
+            <!--<span> Office HU322 </span>-->
+        <!--</li>-->
     </ul>
 </div>
 

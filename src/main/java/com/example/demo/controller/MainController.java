@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -68,6 +71,12 @@ public class MainController {
         return "currentsemester";
     }
 
+    @RequestMapping("/enroll/{id}")
+    public String addCourseInfo (@PathVariable("id") long id, RedirectAttributes model){
+        model.addFlashAttribute("class",classes.findById(id).get());
+        return "redirect:/student/enroll";
+    }
+
 
     @PostConstruct
     public void fillTables (){
@@ -114,6 +123,7 @@ public class MainController {
         ourClass.setSubjectCode("BIO");
         ourClass.setClassroom(classroom);
         ourClass.setInstructor(instructor);
+        ourClass.setCourse(course);
         classes.save(ourClass);
 
 
