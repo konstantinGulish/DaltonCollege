@@ -39,6 +39,7 @@ public class StudentController {
 
     @RequestMapping("/enroll")
     public String enroll(Model model){
+        //Classroom object and Instructor object should also be passed to this view
         model.addAttribute("studentclass", new OurClass());
         return "enroll";
     }
