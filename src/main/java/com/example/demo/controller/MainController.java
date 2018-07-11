@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class MainController {
@@ -77,28 +79,43 @@ public class MainController {
         classrooms.save(classroom);
 
 
-        Department department = new Department();
-        department.setDeptName("English");
+
         Instructor instructor = new Instructor();
         Course course = new Course();
         Major major = new Major();
-        departments.save(department);
+
 
         instructor.setEmployeeNumber(8675309);
         instructor.setEmployeeName("Dave Wolf");
         instructor.setOfficeNumber("HU322");
-        instructors.save (instructor);
+
 
         course.setCourseNumber(101);
         course.setCourseName("Freshman Composition");
         course.setNumberOfCredits(3);
         course.setCourseDescription("First English Course");
+        course.setSubjectCode("ENG");
+
+        Department department = new Department();
+        department.setDeptName("English");
+        departments.save(department);
+        instructor.setDepartment(department);
+        instructors.save (instructor);
+
+        course.setDepartment(department);
+        major.setMajorName("English");
+        major.setDepartment(department);
+        majors.save(major);
+        course.setMajor(major);
         courses.save(course);
 
         ourClass.setCourseNumber("1010");
         ourClass.setCrn("10072");
         ourClass.setSubjectCode("BIO");
+        ourClass.setClassroom(classroom);
+        ourClass.setInstructor(instructor);
         classes.save(ourClass);
+
 
     }
 }
